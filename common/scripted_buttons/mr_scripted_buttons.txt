@@ -271,9 +271,15 @@ mr_pacific_expedition_button = {
 	name = "mr_pacific_expedition_button"
 	desc = "mr_pacific_expedition_button_desc"
 
-	visible = { always = yes }
+	visible = {
+		is_ai = yes
+	}
 
 	possible = {
+		NOR = {
+			has_modifier = rapanui_pacific_expedition_modifier
+			has_modifier = rapanui_had_pacific_expedition_modifier
+		}
 		country_rank >= rank_value:major_power
 		has_technology_researched = screw_frigate
 		has_technology_researched = dialectics
@@ -295,10 +301,6 @@ mr_pacific_expedition_button = {
 					has_technology_researched = destroyer
 				}
 			}
-		}
-		NOR = {
-			has_modifier = rapanui_pacific_expedition_modifier
-			has_modifier = rapanui_had_pacific_expedition_modifier
 		}
 	}
 
@@ -332,38 +334,12 @@ mr_mountain_expedition_button = {
 	desc = "mr_mountain_expedition_button_desc"
 
 	visible = { 
-		OR = {
-			is_player = yes
-			AND = {
-				any_scope_character = {
-					has_role = general
-					is_busy = no
-					OR = {
-						has_trait = dubois_mountaineer
-						has_trait = explorer
-						has_trait = mountain_commander
-						has_trait = surveyor
-					}
-				}
-				has_technology_researched = nationalism
-				has_technology_researched = prospecting
-				NOR = {
-					has_modifier = dubois_summit_level_1_modifier
-					has_modifier = dubois_summit_level_2_modifier
-					has_modifier = dubois_summit_level_3_modifier
-					has_modifier = dubois_summit_level_4_modifier
-					has_modifier = dubois_summit_level_5_modifier
-					has_modifier = dubois_summit_level_6_modifier
-					has_modifier = dubois_mountaineering_disaster_modifier
-					has_modifier = dubois_mountaineering_disappointment_modifier
-					has_journal_entry = je_dubois_mountain_expedition
-					has_variable = dubois_current_mountain_expedition_var
-				}
-			}
-		}
+		is_ai = yes
 	}
 
 	possible = {
+		has_technology_researched = nationalism
+		has_technology_researched = prospecting
 		any_scope_character = {
 			has_role = general
 			is_busy = no
@@ -374,8 +350,6 @@ mr_mountain_expedition_button = {
 				has_trait = surveyor
 			}
 		}
-		has_technology_researched = nationalism
-		has_technology_researched = prospecting
 		NOR = {
 			has_modifier = dubois_summit_level_1_modifier
 			has_modifier = dubois_summit_level_2_modifier
@@ -429,13 +403,19 @@ mr_arctica_expedition_button = {
 	name = "mr_arctica_expedition_button"
 	desc = "mr_arctica_expedition_button_desc"
 
-	visible = { always = yes }
+	visible = {
+		is_ai = yes
+	}
 
 	possible = {
 		has_technology_researched = zeppelins
 		any_scope_building = {
 			is_building_type = building_verrier_observatory
 			has_active_production_method = pm_curtiss_weather_station
+		}
+		NOR = {
+			has_modifier = curtiss_arctica_expedition_modifier
+			has_modifier = curtiss_had_arctica_expedition_modifier
 		}
 		any_scope_character = {
 			OR = {
@@ -445,81 +425,28 @@ mr_arctica_expedition_button = {
 			is_busy = no
 		}
 		OR = {
-
-			OR = {
-				any_scope_state = {
+			any_scope_state = {
+				OR = {
 					state_region = s:STATE_GREENLAND
-				}
-				any_country = {
-					has_diplomatic_pact = {
-						who = ROOT
-						type = airspace_convention
-					}				
-					any_scope_state = {
-						state_region = s:STATE_GREENLAND
-					}
-				}		
-			}
-			OR = {
-				any_scope_state = {
 					state_region = s:STATE_NORTHERN_NORWAY
-				}
-				any_country = {
-					has_diplomatic_pact = {
-						who = ROOT
-						type = airspace_convention
-					}				
-					any_scope_state = {
-						state_region = s:STATE_NORTHERN_NORWAY
-					}
-				}		
-			}
-			OR = {
-				any_scope_state = {
 					state_region = s:STATE_ALASKA
-				}
-				any_country = {
-					has_diplomatic_pact = {
-						who = ROOT
-						type = airspace_convention
-					}				
-					any_scope_state = {
-						state_region = s:STATE_ALASKA
-					}
-				}		
-			}
-			OR = {
-				any_scope_state = {
-				state_region = s:STATE_NUNAVUT
-				}
-				any_country = {
-					has_diplomatic_pact = {
-						who = ROOT
-						type = airspace_convention
-					}				
-					any_scope_state = {
-						state_region = s:STATE_NUNAVUT
-					}
-				}		
-			}
-			OR = {
-				any_scope_state = {
+					state_region = s:STATE_NUNAVUT
 					state_region = s:STATE_NENETSIA
 				}
-				any_country = {
-					has_diplomatic_pact = {
-						who = ROOT
-						type = airspace_convention
-					}				
-					any_scope_state = {
-						state_region = s:STATE_NENETSIA
-					}
-				}		
 			}
-		}
-		NOR = {
-			has_modifier = curtiss_arctica_expedition_modifier
-			has_modifier = curtiss_had_arctica_expedition_modifier
+			any_country = {
+				has_diplomatic_pact = {
+					who = ROOT
+					type = airspace_convention
+				}				
+				any_scope_state = {
+					state_region = s:STATE_GREENLAND
+					state_region = s:STATE_NORTHERN_NORWAY
+					state_region = s:STATE_ALASKA
+					state_region = s:STATE_NUNAVUT
+					state_region = s:STATE_NENETSIA
+				}
+			}
 		}
 	}
 
@@ -581,11 +508,17 @@ mr_safari_expedition_button = {
 	name = "mr_safari_expedition_button"
 	desc = "mr_safari_expedition_button_desc"
 
-	visible = { always = yes }
+	visible = {
+		is_ai = yes
+	}
 
 	possible = {
 		has_technology_researched = dubois_theory_of_evolution_tech
 		has_technology_researched = civilizing_mission
+		NOR = {
+			has_modifier = dubois_on_safari_modifier
+			has_modifier = dubois_had_safari_modifier
+		}
 		any_scope_state = {
 			is_capital = yes
 			OR = {
@@ -604,14 +537,7 @@ mr_safari_expedition_button = {
 			}
 		}
 		dubois_has_active_naturalist = yes
-		custom_tooltip = {
-			text = dubois_safari_possible_tt
-			dubois_safari_possible = yes
-		}
-		NOR = {
-			has_modifier = dubois_on_safari_modifier
-			has_modifier = dubois_had_safari_modifier
-		}
+		dubois_safari_possible = yes
 	}
 
 	effect = {
@@ -643,18 +569,17 @@ mr_zoological_expedition_button = {
 	name = "mr_zoological_expedition_button"
 	desc = "mr_zoological_expedition_button_desc"
 
-	visible = { always = yes }
+	visible = {
+		is_ai = yes
+	}
 
 	possible = {
 		has_technology_researched = dubois_theory_of_evolution_tech
-		dubois_has_active_naturalist = yes
-		custom_tooltip = {
-			text = dubois_has_local_animal_tt
-			dubois_has_local_animal = yes
-		}
 		NOT = {
 			has_modifier = dubois_search_local_animal_modifier
 		}
+		dubois_has_active_naturalist = yes
+		dubois_has_local_animal = yes
 	}
 
 	effect = {
@@ -688,14 +613,15 @@ mr_botanical_expedition_button = {
 	desc = "mr_botanical_expedition_button_desc"
 
 	visible = {
-		NOT = {
-			has_modifier = dubois_botanical_expedition_modifier
-		}
+		is_ai = yes
 	}
 
 	possible = {
 		has_technology_researched = dubois_theory_of_evolution_tech
 		has_technology_researched = malaria_prevention
+		NOT = {
+			has_modifier = dubois_botanical_expedition_modifier
+		}
 		dubois_has_active_naturalist = yes
 		dubois_botanical_expedition_banned = no
 		OR = {
@@ -752,10 +678,11 @@ mr_botanical_expedition_recall_button = {
 	desc = "mr_botanical_expedition_recall_button_desc"
 
 	visible = { 
-		has_modifier = dubois_botanical_expedition_modifier
+		is_ai = yes
 	}
 
 	possible = {
+		has_modifier = dubois_botanical_expedition_modifier
 		NOR = {
 			has_modifier = dubois_naturalist_travell_to_location_modifier
 			has_modifier = dubois_naturalist_travell_from_location_modifier
@@ -786,15 +713,19 @@ mr_paleontological_expedition_button = {
 	name = "mr_paleontological_expedition_button"
 	desc = "mr_paleontological_expedition_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
+	}
+
+	possible = {
 		NOR = {
 			has_modifier = dubois_paleontological_research_modifier
 			has_modifier = dubois_paleontologist_travell_to_location_modifier
 			has_modifier = dubois_paleontologist_travell_from_location_modifier
 		}
-	}
-
-	possible = {
+		NOT = {
+			has_variable = dubois_paleontological_expedition_destination_selection_var
+		}
 		dubois_has_active_paleontologist = yes
 		OR = {
 			dubois_has_formation = yes
@@ -805,9 +736,6 @@ mr_paleontological_expedition_button = {
 				}				
 				dubois_has_formation = yes
 			}
-		}
-		NOT = {
-			has_variable = dubois_paleontological_expedition_destination_selection_var
 		}
 	}
 
@@ -829,10 +757,11 @@ mr_paleontological_expedition_recall_button = {
 	desc = "mr_paleontological_expedition_recall_button_desc"
 
 	visible = { 
-		has_modifier = dubois_paleontological_research_modifier
+		is_ai = yes
 	}
 
 	possible = {
+		has_modifier = dubois_paleontological_research_modifier
 		NOR = {
 			has_modifier = dubois_paleontologist_travell_to_location_modifier
 			has_modifier = dubois_paleontologist_travell_from_location_modifier
@@ -863,35 +792,26 @@ mr_transform_fossils_to_bones_button = {
 	desc = "mr_transform_fossils_to_bones_button_desc"
 
 	visible = { 
-		always = yes
+		is_ai = yes
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = mr_transform_fossils_to_bones_transformable_dinosaur_bone_trigger
-			dubois_has_transformable_dinosaur_bone = yes
-		}
-		custom_tooltip = {
-			text = mr_transform_fossils_to_bones_fossils_trigger
-			var:dubois_fossil >= 20
-		}
-		custom_tooltip = {
-			text = mr_transform_fossils_to_bones_paleontologist_trigger
-			trigger_if = {
-				limit = {
-					has_variable = dubois_paleontologist_var
-				}
-				var:dubois_paleontologist_var = {
-					OR = {
-						has_trait = dubois_paleontologist_experienced
-						has_trait = dubois_paleontologist_famous
-					}
-					is_busy = no
-				}
+		var:dubois_fossil >= 20
+		dubois_has_transformable_dinosaur_bone = yes
+		trigger_if = {
+			limit = {
+				has_variable = dubois_paleontologist_var
 			}
-			trigger_else = {
-				always = no
+			var:dubois_paleontologist_var = {
+				OR = {
+					has_trait = dubois_paleontologist_experienced
+					has_trait = dubois_paleontologist_famous
+				}
+				is_busy = no
 			}
+		}
+		trigger_else = {
+			always = no
 		}
 	}
 
@@ -975,79 +895,70 @@ mr_mount_skeleton_button = {
 	desc = "mr_mount_skeleton_button_desc"
 
 	visible = { 
-		always = yes
+		is_ai = yes
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = mr_mount_skeleton_active_button_trigger
-			NOT = { has_variable = mr_mount_dinosaur_skeleton_button_var }
-		}
-		custom_tooltip = {
-			text = mr_remount_skeleton_paleontologist_trigger
-			trigger_if = {
-				limit = {
-					has_variable = dubois_paleontologist_var
-				}
-				var:dubois_paleontologist_var = {
-					is_busy = no
-					NOT = {
-						has_modifier = dubois_exhausted_paleontologist_modifier
-					}
+		NOT = { has_variable = mr_mount_dinosaur_skeleton_button_var }
+		trigger_if = {
+			limit = {
+				has_variable = dubois_paleontologist_var
+			}
+			var:dubois_paleontologist_var = {
+				is_busy = no
+				NOT = {
+					has_modifier = dubois_exhausted_paleontologist_modifier
 				}
 			}
-			trigger_else = {
-				always = no
-			}
 		}
-		custom_tooltip = {
-			text = mr_mount_skeleton_trigger_tt
-			OR = {
-				AND = {
-					var:dubois_north_american_dinosaur_bone >= 5
-					NAND = {
-						has_variable = dubois_ankylosaurus_var
-						has_variable = dubois_diplodocus_var
-						has_variable = dubois_triceratops_var
-						has_variable = dubois_tyrannosaurus_var
-						has_variable = dubois_stegosaurus_var
-					}
+		trigger_else = {
+			always = no
+		}
+		OR = {
+			AND = {
+				var:dubois_north_american_dinosaur_bone >= 5
+				NAND = {
+					has_variable = dubois_ankylosaurus_var
+					has_variable = dubois_diplodocus_var
+					has_variable = dubois_triceratops_var
+					has_variable = dubois_tyrannosaurus_var
+					has_variable = dubois_stegosaurus_var
 				}
-				AND = {
-					var:dubois_south_american_dinosaur_bone >= 5
-					NAND = {
-						has_variable = dubois_antarctosaurus_var
-						has_variable = dubois_argyrosaurus_var
-					}
+			}
+			AND = {
+				var:dubois_south_american_dinosaur_bone >= 5
+				NAND = {
+					has_variable = dubois_antarctosaurus_var
+					has_variable = dubois_argyrosaurus_var
 				}
-				AND = {
-					var:dubois_european_dinosaur_bone >= 5
-					NAND = {
-						has_variable = dubois_iguanodon_var
-						has_variable = dubois_plateosaurus_var
-					}
+			}
+			AND = {
+				var:dubois_european_dinosaur_bone >= 5
+				NAND = {
+					has_variable = dubois_iguanodon_var
+					has_variable = dubois_plateosaurus_var
 				}
-				AND = {
-					var:dubois_african_dinosaur_bone >= 5
-					NAND = {
-						has_variable = dubois_giraffatitan_var
-						#has_variable = dubois_melanorosaurus_var
-						has_variable = dubois_spinosaurus_var
-					}
+			}
+			AND = {
+				var:dubois_african_dinosaur_bone >= 5
+				NAND = {
+					has_variable = dubois_giraffatitan_var
+					#has_variable = dubois_melanorosaurus_var
+					has_variable = dubois_spinosaurus_var
 				}
-				AND = {
-					var:dubois_asian_dinosaur_bone >= 5
-					NAND = {
-						has_variable = dubois_psittacosaurus_var
-						has_variable = dubois_velociraptor_var
-					}
+			}
+			AND = {
+				var:dubois_asian_dinosaur_bone >= 5
+				NAND = {
+					has_variable = dubois_psittacosaurus_var
+					has_variable = dubois_velociraptor_var
 				}
-				AND = {
-					var:dubois_australian_dinosaur_bone >= 5
-					NAND = {
-						has_variable = dubois_muttaburrasaurus_var
-						has_variable = dubois_rhoetosaurus_var
-					}
+			}
+			AND = {
+				var:dubois_australian_dinosaur_bone >= 5
+				NAND = {
+					has_variable = dubois_muttaburrasaurus_var
+					has_variable = dubois_rhoetosaurus_var
 				}
 			}
 		}
@@ -1075,61 +986,52 @@ mr_remount_skeleton_button = {
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = mr_remount_skeleton_active_button_trigger
-			NOT = { has_variable = mr_remount_dinosaur_skeleton_button_var }
-		}
-		custom_tooltip = {
-			text = mr_remount_skeleton_paleontologist_trigger
-			trigger_if = {
-				limit = {
-					has_variable = dubois_paleontologist_var
-				}
-				var:dubois_paleontologist_var = {
-					is_busy = no
-					NOT = {
-						has_modifier = dubois_exhausted_paleontologist_modifier
-					}
+		NOT = { has_variable = mr_remount_dinosaur_skeleton_button_var }
+		trigger_if = {
+			limit = {
+				has_variable = dubois_paleontologist_var
+			}
+			var:dubois_paleontologist_var = {
+				is_busy = no
+				NOT = {
+					has_modifier = dubois_exhausted_paleontologist_modifier
 				}
 			}
-			trigger_else = {
-				always = no
-			}
 		}
-		custom_tooltip = {
-			text = mr_remount_skeleton_trigger_tt
-			OR = {
-				has_variable = dubois_imperfect_ankylosaurus_var
-				has_variable = dubois_poor_ankylosaurus_var
-				has_variable = dubois_imperfect_diplodocus_var
-				has_variable = dubois_poor_diplodocus_var
-				has_variable = dubois_imperfect_triceratops_var
-				has_variable = dubois_poor_triceratops_var
-				has_variable = dubois_imperfect_tyrannosaurus_var
-				has_variable = dubois_poor_tyrannosaurus_var
-				has_variable = dubois_imperfect_stegosaurus_var
-				has_variable = dubois_poor_stegosaurus_var
-				has_variable = dubois_imperfect_antarctosaurus_var
-				has_variable = dubois_poor_antarctosaurus_var
-				has_variable = dubois_imperfect_argyrosaurus_var
-				has_variable = dubois_poor_argyrosaurus_var
-				has_variable = dubois_imperfect_iguanodon_var
-				has_variable = dubois_poor_iguanodon_var
-				has_variable = dubois_imperfect_plateosaurus_var
-				has_variable = dubois_poor_plateosaurus_var
-				has_variable = dubois_imperfect_giraffatitan_var
-				has_variable = dubois_poor_giraffatitan_var
-				has_variable = dubois_imperfect_spinosaurus_var
-				has_variable = dubois_poor_spinosaurus_var
-				has_variable = dubois_imperfect_psittacosaurus_var
-				has_variable = dubois_poor_psittacosaurus_var
-				has_variable = dubois_imperfect_velociraptor_var
-				has_variable = dubois_poor_velociraptor_var
-				has_variable = dubois_imperfect_muttaburrasaurus_var
-				has_variable = dubois_poor_muttaburrasaurus_var
-				has_variable = dubois_imperfect_rhoetosaurus_var
-				has_variable = dubois_poor_rhoetosaurus_var
-			}
+		trigger_else = {
+			always = no
+		}
+		OR = {
+			has_variable = dubois_imperfect_ankylosaurus_var
+			has_variable = dubois_poor_ankylosaurus_var
+			has_variable = dubois_imperfect_diplodocus_var
+			has_variable = dubois_poor_diplodocus_var
+			has_variable = dubois_imperfect_triceratops_var
+			has_variable = dubois_poor_triceratops_var
+			has_variable = dubois_imperfect_tyrannosaurus_var
+			has_variable = dubois_poor_tyrannosaurus_var
+			has_variable = dubois_imperfect_stegosaurus_var
+			has_variable = dubois_poor_stegosaurus_var
+			has_variable = dubois_imperfect_antarctosaurus_var
+			has_variable = dubois_poor_antarctosaurus_var
+			has_variable = dubois_imperfect_argyrosaurus_var
+			has_variable = dubois_poor_argyrosaurus_var
+			has_variable = dubois_imperfect_iguanodon_var
+			has_variable = dubois_poor_iguanodon_var
+			has_variable = dubois_imperfect_plateosaurus_var
+			has_variable = dubois_poor_plateosaurus_var
+			has_variable = dubois_imperfect_giraffatitan_var
+			has_variable = dubois_poor_giraffatitan_var
+			has_variable = dubois_imperfect_spinosaurus_var
+			has_variable = dubois_poor_spinosaurus_var
+			has_variable = dubois_imperfect_psittacosaurus_var
+			has_variable = dubois_poor_psittacosaurus_var
+			has_variable = dubois_imperfect_velociraptor_var
+			has_variable = dubois_poor_velociraptor_var
+			has_variable = dubois_imperfect_muttaburrasaurus_var
+			has_variable = dubois_poor_muttaburrasaurus_var
+			has_variable = dubois_imperfect_rhoetosaurus_var
+			has_variable = dubois_poor_rhoetosaurus_var
 		}
 	}
 
