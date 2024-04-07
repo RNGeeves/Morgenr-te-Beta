@@ -12,7 +12,7 @@ academics_promote_engineer_button = {
 	name = "academics_promote_engineer_button"
 	desc = "academics_promote_engineer_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
@@ -104,7 +104,7 @@ academics_promote_astronomer_button = {
 	name = "academics_promote_astronomer_button"
 	desc = "academics_promote_astronomer_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
@@ -183,7 +183,7 @@ academics_promote_naturalist_button = {
 	name = "academics_promote_naturalist_button"
 	desc = "academics_promote_naturalist_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
@@ -250,7 +250,7 @@ academics_promote_paleontologist_button = {
 	name = "academics_promote_paleontologist_button"
 	desc = "academics_promote_paleontologist_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
@@ -331,7 +331,7 @@ academics_promote_archaeologist_button = {
 	name = "academics_promote_archaeologist_button"
 	desc = "academics_promote_archaeologist_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
@@ -415,7 +415,7 @@ academics_promote_anthropologist_button = {
 	name = "academics_promote_anthropologist_button"
 	desc = "academics_promote_anthropologist_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
@@ -483,7 +483,7 @@ academics_change_to_avantgarde_school_button = {
 	name = "academics_change_to_avantgarde_school_button"
 	desc = "academics_change_to_avantgarde_school_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		NOR = {
@@ -530,7 +530,7 @@ academics_change_to_practical_school_button = {
 	name = "academics_change_to_practical_school_button"
 	desc = "academics_change_to_practical_school_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		NOR = {
@@ -582,7 +582,7 @@ academics_change_to_military_school_button = {
 	name = "academics_change_to_military_school_button"
 	desc = "academics_change_to_military_school_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		NOR = {
@@ -655,7 +655,7 @@ academics_change_to_business_school_button = {
 	name = "academics_change_to_business_school_button"
 	desc = "academics_change_to_business_school_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		NOR = {
@@ -742,7 +742,7 @@ academics_change_to_seapower_school_button = {
 	name = "academics_change_to_seapower_school_button"
 	desc = "academics_change_to_seapower_school_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		NOR = {
@@ -802,7 +802,7 @@ academics_change_to_useful_school_button = {
 	name = "academics_change_to_useful_school_button"
 	desc = "academics_change_to_useful_school_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		NOR = {

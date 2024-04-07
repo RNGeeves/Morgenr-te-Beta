@@ -25,6 +25,20 @@ je_mr_morgenrote_introduction = {
 		always = yes
 	}
 
+	scripted_button = academics_promote_engineer_button
+	scripted_button = academics_promote_astronomer_button
+	scripted_button = academics_promote_naturalist_button
+	scripted_button = academics_promote_paleontologist_button
+	scripted_button = academics_promote_archaeologist_button
+	scripted_button = academics_promote_anthropologist_button
+
+	scripted_button = academics_change_to_avantgarde_school_button
+	scripted_button = academics_change_to_practical_school_button
+	scripted_button = academics_change_to_military_school_button
+	scripted_button = academics_change_to_business_school_button
+	scripted_button = academics_change_to_seapower_school_button
+	scripted_button = academics_change_to_useful_school_button
+
 	scripted_button = mr_pacific_expedition_button
 	scripted_button = mr_mountain_expedition_button
 	scripted_button = mr_arctica_expedition_button
