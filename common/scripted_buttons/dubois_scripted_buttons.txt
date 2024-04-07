@@ -12,7 +12,7 @@ dubois_specimen_garden_button = {
 	name = "dubois_specimen_garden_button"
 	desc = "dubois_specimen_garden_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		dubois_has_naturalist = yes
@@ -20,10 +20,7 @@ dubois_specimen_garden_button = {
 			is_building_type = building_dubois_zoo
 			level > 0
 		}
-		custom_tooltip = {
-			text = dubois_specimen_tt
-			var:dubois_specimen >= 50000
-		}
+		var:dubois_specimen >= 50000
 		NOT = {
 			any_scope_state = {
 				is_production_method_active = {
@@ -46,13 +43,17 @@ dubois_specimen_garden_button = {
 			}
 		}
 	}
+
+	ai_chance = {
+		base = 1000
+	}
 }
 
 dubois_specimen_collection_button = {
 	name = "dubois_specimen_collection_button"
 	desc = "dubois_specimen_collection_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		dubois_has_naturalist = yes
@@ -60,10 +61,7 @@ dubois_specimen_collection_button = {
 			is_building_type = building_dubois_zoo
 			level > 0
 		}
-		custom_tooltip = {
-			text = dubois_specimen_tt
-			var:dubois_specimen >= 50000
-		}
+		var:dubois_specimen >= 50000
 		NOT = {
 			any_scope_state = {
 				is_production_method_active = {
@@ -85,5 +83,9 @@ dubois_specimen_collection_button = {
 				production_method = pm_specimen_collection
 			}
 		}
+	}
+
+	ai_chance = {
+		base = 1000
 	}
 }
