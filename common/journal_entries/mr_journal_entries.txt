@@ -39,6 +39,12 @@ je_mr_morgenrote_introduction = {
 	scripted_button = academics_change_to_seapower_school_button
 	scripted_button = academics_change_to_useful_school_button
 
+	scripted_button = artists_promote_composer_button
+	#scripted_button = artists_promote_writer_button
+	scripted_button = artists_promote_painter_button
+
+	scripted_button = curtiss_ballooning_recruit_balloonist
+
 	scripted_button = mr_pacific_expedition_button
 	scripted_button = mr_mountain_expedition_button
 	scripted_button = mr_arctica_expedition_button
@@ -52,6 +58,9 @@ je_mr_morgenrote_introduction = {
 	scripted_button = mr_mount_skeleton_button
 	scripted_button = mr_remount_skeleton_button
 	
+	immediate = {
+		set_up_records_je_effect = yes
+	}
 
 	# Here the Characters get removed, if they exist but are not alive anymore.
 	# This effect needs to be in an on_weekly_pulse because otherwise the check does not work,
@@ -473,9 +482,7 @@ je_mr_arts = {
 	}
 
 	scripted_button = mr_visit_opera_arts_button
-	scripted_button = artists_promote_composer_button
-	#scripted_button = artists_promote_writer_button
-	scripted_button = artists_promote_painter_button
+	
 	scripted_button = mr_composer_commission_button
 	scripted_button = mr_vernissage_button
 	scripted_button = mr_painter_trip_button

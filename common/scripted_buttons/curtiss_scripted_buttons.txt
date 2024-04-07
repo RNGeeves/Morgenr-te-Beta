@@ -38,9 +38,10 @@ curtiss_ballooning_recruit_balloonist = {
 	name = "curtiss_ballooning_recruit_balloonist"
 	desc = "curtiss_ballooning_recruit_balloonist_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
+		has_technology_researched = curtiss_montgolfier_balloon_tech
 		curtiss_no_balloonist_trigger = yes
 	}
 
@@ -162,141 +163,6 @@ curtiss_ballooning_recruit_balloonist = {
 		trigger_event = {
 			id = curtiss.650
 			popup = yes
-		}
-	}
-}
-
-curtiss_ballooning_fire_balloonist = {
-	name = "curtiss_ballooning_fire_balloonist"
-	desc = "curtiss_ballooning_fire_balloonist_desc"
-
-	visible = { always = yes }
-
-	possible = {
-		curtiss_has_balloonist_trigger = yes
-	}
-
-	ai_chance = {
-		base = 0
-	}
-
-	effect = {
-		kill_balloonist_effect = yes
-	}
-}
-
-curtiss_ballooning_no_more_flight_information = {
-	name = "curtiss_ballooning_no_more_flight_information"
-	desc = "curtiss_ballooning_no_more_flight_information_desc"
-
-	visible = {
-		NOT = {
-			has_variable = curtiss_no_balloonist_flight_events
-		}
-	}
-
-	possible = {
-		custom_tooltip = {
-			text = curtiss_ballooning_no_more_flight_information_trigger_tt
-			NOT = {
-				has_variable = curtiss_no_balloonist_flight_events
-			}
-		}
-	}
-
-	ai_chance = {
-		base = 0
-	}
-
-	effect = {
-		custom_tooltip = {
-			text = curtiss_ballooning_no_more_flight_information_tt
-			set_variable = curtiss_no_balloonist_flight_events
-		}
-	}
-}
-
-curtiss_ballooning_flight_information = {
-	name = "curtiss_ballooning_flight_information"
-	desc = "curtiss_ballooning_flight_information_desc"
-
-	visible = {
-		has_variable = curtiss_no_balloonist_flight_events
-	}
-
-	possible = {
-		custom_tooltip = {
-			text = curtiss_ballooning_return_flight_information_trigger_tt
-			has_variable = curtiss_no_balloonist_flight_events
-		}
-	}
-
-	ai_chance = {
-		base = 0
-	}
-
-	effect = {
-		custom_tooltip = {
-			text = curtiss_ballooning_return_flight_information_tt
-			remove_variable = curtiss_no_balloonist_flight_events
-		}
-	}
-}
-
-curtiss_ballooning_no_more_death_information = {
-	name = "curtiss_ballooning_no_more_death_information"
-	desc = "curtiss_ballooning_no_more_death_information_desc"
-
-	visible = {
-		NOT = {
-			has_variable = curtiss_no_balloonist_death_events
-		}
-	}
-
-	possible = {
-		custom_tooltip = {
-			text = curtiss_ballooning_no_more_death_information_trigger_tt
-			NOT = {
-				has_variable = curtiss_no_balloonist_death_events
-			}
-		}
-	}
-
-	ai_chance = {
-		base = 0
-	}
-
-	effect = {
-		custom_tooltip = {
-			text = curtiss_ballooning_no_more_death_information_tt
-			set_variable = curtiss_no_balloonist_death_events
-		}
-	}
-}
-
-curtiss_ballooning_death_information = {
-	name = "curtiss_ballooning_death_information"
-	desc = "curtiss_ballooning_death_information_desc"
-
-	visible = {
-		has_variable = curtiss_no_balloonist_death_events
-	}
-
-	possible = {
-		custom_tooltip = {
-			text = curtiss_ballooning_death_information_trigger_tt
-			has_variable = curtiss_no_balloonist_death_events
-		}
-	}
-
-	ai_chance = {
-		base = 0
-	}
-
-	effect = {
-		custom_tooltip = {
-			text = curtiss_ballooning_death_information_tt
-			remove_variable = curtiss_no_balloonist_death_events
 		}
 	}
 }

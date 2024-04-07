@@ -12,7 +12,7 @@ artists_promote_composer_button = {
 	name = "artists_promote_composer_button"
 	desc = "artists_promote_composer_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
@@ -60,7 +60,7 @@ artists_promote_writer_button = {
 	name = "artists_promote_writer_button"
 	desc = "artists_promote_writer_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
@@ -109,7 +109,7 @@ artists_promote_painter_button = {
 	name = "artists_promote_painter_button"
 	desc = "artists_promote_painter_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		hidden_trigger = {
