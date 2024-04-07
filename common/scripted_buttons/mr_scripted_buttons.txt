@@ -3830,7 +3830,7 @@ academics_change_to_civil_engineer_button = {
 	name = "academics_change_to_civil_engineer_button"
 	desc = "academics_change_to_civil_engineer_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		gaudi_has_engineer = yes
@@ -3857,7 +3857,7 @@ academics_change_to_mechanical_engineer_button = {
 	name = "academics_change_to_mechanical_engineer_button"
 	desc = "academics_change_to_mechanical_engineer_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		gaudi_has_engineer = yes
@@ -3884,7 +3884,7 @@ academics_change_to_military_engineer_button = {
 	name = "academics_change_to_military_engineer_button"
 	desc = "academics_change_to_military_engineer_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		gaudi_has_engineer = yes
@@ -3912,7 +3912,7 @@ academics_change_to_electrical_engineer_button = {
 	name = "academics_change_to_electrical_engineer_button"
 	desc = "academics_change_to_electrical_engineer_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		gaudi_has_engineer = yes
@@ -3941,7 +3941,7 @@ academics_change_to_aeronautical_button = {
 	name = "academics_change_to_aeronautical_button"
 	desc = "academics_change_to_aeronautical_button_desc"
 
-	visible = { always = yes }
+	visible = { is_ai = yes }
 
 	possible = {
 		gaudi_has_engineer = yes

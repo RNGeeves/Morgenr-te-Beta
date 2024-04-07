@@ -12,13 +12,18 @@ vikelas_ioc_foundation_button = {
 	name = "vikelas_ioc_foundation_button"
 	desc = "vikelas_ioc_foundation_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		NOT = {
 			has_global_variable = vikelas_ioc_founded_var
 		}
 	}
 
 	possible = {
+		OR = {
+			has_technology_researched = organized_sports
+			has_variable = vikelas_ioc_member_var
+		}
 		OR = {
 			gaudi_has_engineer = yes
 			verrier_has_astronomer = yes
@@ -49,17 +54,19 @@ vikelas_ioc_statistics_button = {
 	name = "vikelas_ioc_statistics_button"
 	desc = "vikelas_ioc_statistics_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		has_global_variable = vikelas_ioc_founded_var
 		is_player = yes
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = vikelas_ioc_statistics_tt
-			NOT = {
-				has_variable = vikelas_ioc_statistics_var
-			}
+		OR = {
+			has_technology_researched = organized_sports
+			has_variable = vikelas_ioc_member_var
+		}
+		NOT = {
+			has_variable = vikelas_ioc_statistics_var
 		}
 	}
 
@@ -80,7 +87,8 @@ vikelas_ioc_member_button = {
 	name = "vikelas_ioc_member_button"
 	desc = "vikelas_ioc_member_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		has_global_variable = vikelas_ioc_founded_var
 		NOT = {
 			has_variable = vikelas_ioc_member_var
@@ -88,6 +96,10 @@ vikelas_ioc_member_button = {
 	}
 
 	possible = {
+		OR = {
+			has_technology_researched = organized_sports
+			has_variable = vikelas_ioc_member_var
+		}
 		infamy < 50
 		NOT = {
 			is_country_type = unrecognized
@@ -112,69 +124,70 @@ vikelas_ioc_member_button = {
 	}
 }
 
-vikelas_ioc_bribe_button = {
-	name = "vikelas_ioc_bribe_button"
-	desc = "vikelas_ioc_bribe_button_desc"
-
-	visible = { 
-		has_variable = vikelas_ioc_member_var
-		is_player = yes
-	}
-
-	possible = {
-		NOT = {
-			any_state = {
-				has_modifier = vikelas_olympics_hosting_modifier
-			}
-		}
-		NOT = {
-			has_modifier = vikelas_olympics_bribed_modifier
-		}
-	}
-
-	effect = {
-		add_treasury = -1000000
-		add_modifier = {
-			name = vikelas_olympics_bribed_modifier
-			years = 5
-		}
-		change_infamy = 3
-		every_country = {
-			limit = {
-				has_variable = vikelas_ioc_board_member_var
-				NOT = { root = this }
-			}
-			add_treasury = 75000
-			change_relations = {
-				country = ROOT
-				value = 5
-			}
-		}
-		every_country = {
-			limit = {
-				has_variable = vikelas_ioc_member_var
-				NOT = {
-					has_variable = vikelas_ioc_board_member_var
-				}
-				NOT = { root = this }
-			}
-			change_relations = {
-				country = ROOT
-				value = -5
-			}
-		}
-	}
-
-	ai_chance = {
-		base = 100
-	}
-}
+#vikelas_ioc_bribe_button = {
+#	name = "vikelas_ioc_bribe_button"
+#	desc = "vikelas_ioc_bribe_button_desc"
+#
+#	visible = {
+#		has_variable = vikelas_ioc_member_var
+#		is_player = yes
+#	}
+#
+#	possible = {
+#		NOT = {
+#			any_state = {
+#				has_modifier = vikelas_olympics_hosting_modifier
+#			}
+#		}
+#		NOT = {
+#			has_modifier = vikelas_olympics_bribed_modifier
+#		}
+#	}
+#
+#	effect = {
+#		add_treasury = -1000000
+#		add_modifier = {
+#			name = vikelas_olympics_bribed_modifier
+#			years = 5
+#		}
+#		change_infamy = 3
+#		every_country = {
+#			limit = {
+#				has_variable = vikelas_ioc_board_member_var
+#				NOT = { root = this }
+#			}
+#			add_treasury = 75000
+#			change_relations = {
+#				country = ROOT
+#				value = 5
+#			}
+#		}
+#		every_country = {
+#			limit = {
+#				has_variable = vikelas_ioc_member_var
+#				NOT = {
+#					has_variable = vikelas_ioc_board_member_var
+#				}
+#				NOT = { root = this }
+#			}
+#			change_relations = {
+#				country = ROOT
+#				value = -5
+#			}
+#		}
+#	}
+#
+#	ai_chance = {
+#		base = 100
+#	}
+#}
 
 vikelas_olympic_flame_button = {
 	name = "vikelas_olympic_flame_button"
 	desc = "vikelas_olympic_flame_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		has_variable = vikelas_ioc_member_var
 		NOT = {
 			has_global_variable = vikelas_olympic_flame_var
@@ -224,13 +237,18 @@ vikelas_school_sport_button = {
 	name = "vikelas_school_sport_button"
 	desc = "vikelas_school_sport_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		NOT = {
 			has_variable = vikelas_school_sport_var
 		}
 	}
 
 	possible = {
+		OR = {
+			has_technology_researched = organized_sports
+			has_variable = vikelas_ioc_member_var
+		}
 		has_law = law_type:law_public_schools
 		any_interest_group = {
     		is_in_government = yes
@@ -259,7 +277,8 @@ vikelas_football_worldcup_button = {
 	name = "vikelas_football_worldcup_button"
 	desc = "vikelas_football_worldcup_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		NOT = {
 			has_global_variable = vikelas_football_worldcup_var
 		}
@@ -267,12 +286,13 @@ vikelas_football_worldcup_button = {
 	}
 
 	possible = {
-		custom_tooltip = {
-			text = vikelas_football_worldcup_tt
-			any_country = {
-				has_variable = vikelas_football_association_var
-				count >= 16
-			}
+		OR = {
+			has_technology_researched = organized_sports
+			has_variable = vikelas_ioc_member_var
+		}
+		any_country = {
+			has_variable = vikelas_football_association_var
+			count >= 16
 		}
 		has_technology_researched = elgar_mass_culture_tech
 		has_technology_researched = organized_sports
@@ -311,7 +331,8 @@ vikelas_autoracing_found_automobile_club_button = {
 	name = "vikelas_autoracing_found_automobile_club_button"
 	desc = "vikelas_autoracing_found_automobile_club_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		NOT = {
 			has_variable = vikelas_automobile_club_var
 		}
@@ -342,6 +363,7 @@ vikelas_autoracing_long_distance_button = {
 	desc = "vikelas_autoracing_long_distance_button_desc"
 
 	visible = {
+		is_ai = yes
 		has_variable = vikelas_automobile_club_var
 	}
 
@@ -376,7 +398,8 @@ vikelas_autoracing_found_grand_prix_button = {
 	name = "vikelas_autoracing_found_grand_prix_button"
 	desc = "vikelas_autoracing_found_grand_prix_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		NOT = {
 			has_global_variable = vikelas_autoracing_grand_prix_founded_var
 		}
@@ -417,7 +440,8 @@ vikelas_autoracing_race_track_button = {
 	name = "vikelas_autoracing_race_track_button"
 	desc = "vikelas_autoracing_race_track_button_desc"
 
-	visible = { 
+	visible = {
+		is_ai = yes
 		NOT = {
 			any_scope_state = {
 				has_modifier = vikelas_race_track_modifier
